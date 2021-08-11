@@ -1,24 +1,24 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Greetings from './components/Greetings';
+
 
 function App() {
+
+  const [familiar, setFamiliar] = useState(false)
+
+  const handleButton = ()=>{
+    setFamiliar(!familiar)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      {/* toString() method use to show the result 'false'*/}
+      <h1>Conditional rendering in React</h1><br />
+      <h1>Is Familiar: {familiar.toString()}</h1> 
+      <button onClick = {handleButton}>Toggle Friend</button>
+      <Greetings familiar = {familiar}></Greetings>
+    </div >
   );
 }
 
